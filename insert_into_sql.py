@@ -8,10 +8,8 @@ def urunEkle(ad, yazar, yayin, baski, tur):
     "Trusted_Connection = True;"
     )
     imlec = baglanti.cursor()
-
     sql = "INSERT INTO Kitaplar(Ad, Yazar, Yayin, Baski, Tur) VALUES (%s, %s, %s, %s, %s)"
     degerler = (ad, yazar, yayin, baski, tur)
-
     imlec.execute(sql, degerler)
     try:
         baglanti.commit()
@@ -21,7 +19,7 @@ def urunEkle(ad, yazar, yayin, baski, tur):
     finally:
         baglanti.close()
         print("Veritabanı bağlantısı kapandı.")
-
+        
 def urunleriEkle(liste):
     baglanti = pypyodbc.connect(
     "Driver = {SQL Server};",
@@ -30,10 +28,8 @@ def urunleriEkle(liste):
     "Trusted_Connection = True;"
     )
     imlec = baglanti.cursor()
-
     sql = "INSERT INTO Kitaplar(Ad, Yazar, Yayin, Baski, Tur) VALUES (%s, %s, %s, %s, %s)"
     degerler = liste
-
     imlec.executemany(sql, degerler)
     try:
         baglanti.commit()
@@ -43,7 +39,7 @@ def urunleriEkle(liste):
     finally:
         baglanti.close()
         print("Veritabanı bağlantısı kapandı.")
-
+        
 liste = []
 while True:
     ad = input("Kitabın adı: ")
@@ -51,14 +47,12 @@ while True:
     yayin = input("Yayın: ")
     baski = input("Kaçıncı baskı: ")
     tur = input("Kitabın türü: ")
-
     liste.append((ad, yazar, yayin, baski, tur))
-
     sonuc = input("Ekleme işlemini sürdürmek istiyor musunuz? (E/H): ")
     if sonuc == "h":
         print("Kayıtlarınız veritabanına aktarılıyor.")
         print(liste)
         urunleriEkle(liste)
         break
-
+        
 urunEkle(ad, yazar, yayin, baski, tur)
