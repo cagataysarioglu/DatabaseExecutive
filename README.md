@@ -1,1 +1,1 @@
-####### Bu depodaki veritabanı yönetimi örneklemesi, Python ve pyppyodbc kütüphanesi kullanılarak oluşturulmuştur. ####### The database managing sample in this repo were created with Python and pyppyodbc library. ####### H. Cagatay Sarioglu
+####### Bu depodaki veritabanı yönetimi örneklemesi, Python dilinde pyppyodbc kütüphanesi kullanılarak oluşturulmuştur. ####### The database managing sample in this repo were created in Python language with pyppyodbc library. ####### H. Cagatay Sarioglu
